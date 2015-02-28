@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block css %}
+    .mainDiv{
+    margin-top : 20px;
+    margin-left : 20px;
+    }
+
+    .demoDiv{
+    width : 600px;
+    float : left;
+    }
+
+    .demo{
+    margin-top : 30px;
+    }
+{% endblock %}
+{% block javascript %}
+    <script src="{{ STATIC_URL }}Third/Coordinates.js"></script>
+    <script src="{{ STATIC_URL }}Third/OrbitAndPanControls.js"></script>
+{% endblock %}
+{% block html %}
+    <div class="mainDiv">
+        <div class="demoDiv">
+            <h3>Vertex Attribute</h3>
+            <div id="demo1" class="demo">
+
+            </div>
+        </div>
+        <div class="demoDiv">
+            <h3>Diffuse Material</h3>
+            <div id="demo2" class="demo">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript2 %}
+    <script src="{{ STATIC_URL }}Lecture3/diffuse_material.js"></script>
+    <script src="{{ STATIC_URL }}Lecture3/vertex_attributes.js"></script>
+    <script type="text/javascript">
+        /*
+        function animate() {
+
+            window.requestAnimationFrame( animate );
+            render();
+
+        }
+
+        function render() {
+            var delta = clock.getDelta();
+            cameraControls1.update(delta);
+
+            renderer.render( scene, camera );
+
+        }
+
+        console.log(cameraControls1);
+        function animate() {
+            window.requestAnimationFrame(animate);
+            //render();
+        }
+
+        function render() {
+            var delta = clock.getDelta();
+            cameraControls1.update(delta);
+            cameraControls2.update(delta);
+
+            renderer.render(scene, camera);
+        }
+   */
+      //  animate();
+    </script>
+
+{% endblock %}

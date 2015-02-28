@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block css %}
+    .mainDiv{
+    margin-top : 20px;
+    margin-left : 20px;
+    }
+{% endblock %}
+{% block javascript %}
+    <script src="{{ STATIC_URL }}Third/Coordinates.js"></script>
+    <script src="{{ STATIC_URL }}Third/OrbitAndPanControls.js"></script>
+{% endblock %}
+{% block html %}
+    <link href="{{ STATIC_URL }}/Demo2/css/main.css" rel="stylesheet" />
+    <link id="theme" href="{{ STATIC_URL }}/Demo2/css/light.css" rel="stylesheet" />
+
+    <div class="mainDiv" id="mainDiv">
+
+    </div>
+{% endblock %}
+{% block javascript2 %}
+
+
+{% endblock %}

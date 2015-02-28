@@ -1,0 +1,104 @@
+/**
+ * Created by mathew on 15. 1. 15..
+ */
+////////////////////////////////////////////////////////////////////////////////
+// Diffuse material exercise
+////////////////////////////////////////////////////////////////////////////////
+/*global THREE, window, document*/
+var camera, scene, renderer;
+var cameraControls;
+var clock = new THREE.Clock();
+var ambientLight, light;
+
+function init() {
+	var canvasWidth = 846;
+	var canvasHeight = 494;
+	var canvasRatio = canvasWidth / canvasHeight;
+
+	// CAMERA
+
+	camera = new THREE.PerspectiveCamera( 45, canvasRatio, 1, 80000 );
+	camera.position.set( -300, 300, -1000 );
+	camera.lookAt(0,0,0);
+	// LIGHTS
+
+	ambientLight = new THREE.AmbientLight( 0xffffff );
+
+	light = new THREE.DirectionalLight( 0xffffff, 0.7 );
+	light.position.set( -800, 900, 300 );
+
+	// RENDERER
+	renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setSize( canvasWidth, canvasHeight);
+	renderer.setClearColor( 0xAAAAAA, 1.0 );
+
+	renderer.gammaInput = true;
+	renderer.gammaOutput = true;
+
+	// CONTROLS
+	cameraControls = new THREE.OrbitAndPanControls( camera, renderer.domElement );
+	cameraControls.target.set(0, 0, 0);
+
+}
+
+function createBall() {
+    // Do not change the color itself, change the material and use the ambient and diffuse components.
+	var material = new THREE.MeshLambertMaterial( { color: 0x80FC66, shading: THREE.FlatShading } );
+	var sphere = new THREE.Mesh( new THREE.SphereGeometry( 400, 64, 32 ), material );
+
+    material.ambient.setRGB(material.ambient.r * 0.1, material.ambient.g * 0.1, material.ambient.b * 0.1 );
+	return sphere;
+}
+
+function fillScene() {
+	scene = new THREE.Scene();
+	scene.fog = new THREE.Fog( 0x808080, 2000, 4000 );
+	scene.add( camera );
+
+	// LIGHTS
+	scene.add( ambientLight );
+	scene.add( light );
+
+	var ball = createBall();
+	scene.add( ball );
+
+	//Coordinates.drawGround({size:1000});
+	//Coordinates.drawGrid({size:1000,scale:0.01});
+	//Coordinates.drawAllAxes({axisLength:500,axisRadius:1,axisTess:4});
+}
+
+
+function addToDOM() {
+    /*
+    var container = document.getElementById('container');
+    var canvas = container.getElementsByTagName('canvas');
+    if (canvas.length>0) {
+        container.removeChild(canvas[0]);
+    }
+    container.appendChild( renderer.domElement );
+    */
+    document.body.appendChild( renderer.domElement );
+}
+
+function render() {
+	var delta = clock.getDelta();
+	cameraControls.update(delta);
+
+	renderer.render( scene, camera );
+
+}
+
+function animate() {
+
+	requestAnimationFrame( animate );
+	render();
+
+}
+
+
+
+init();
+fillScene();
+addToDOM();
+render();
+animate();

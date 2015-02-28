@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block css %}
+    .mainDiv{
+    margin-top : 20px;
+    margin-left : 20px;
+    }
+
+    .subDiv{
+    width : 1500px;
+    height : 400px;
+    }
+
+    .demoDiv{
+    width : 700px;
+    float : left;
+    }
+
+    .demo{
+    margin-top : 30px;
+    width : 700px;
+    }
+
+    canvas{
+        float:left;
+    }
+{% endblock %}
+{% block javascript %}
+    <script src="{{ STATIC_URL }}Third/Coordinates.js"></script>
+    <script src="{{ STATIC_URL }}Third/OrbitAndPanControls.js"></script>
+    <script src="{{ STATIC_URL }}Third/dat.gui.js"></script>
+{% endblock %}
+{% block html %}
+    <div class="mainDiv">
+        <div class="subDiv">
+            <div class="demoDiv">
+                <h3>Extended Robot Arm</h3>
+                <div id="demo1" class="demo">
+
+                </div>
+            </div>
+            <div class="demoDiv">
+                <h3>Robot Hand</h3>
+                <div id="demo2" class="demo">
+
+                </div>
+            </div>
+        </div>
+        <div class="subDiv">
+            <div class="demoDiv">
+                <h3>Make a Flower</h3>
+                <div id="demo3" class="demo">
+
+                </div>
+            </div>
+            <div class="demoDiv">
+                <h3>Improved Petals</h3>
+                <div id="demo4" class="demo">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript2 %}
+    <script src="{{ STATIC_URL }}Lecture4/extended_robot_arm.js"></script>
+    <script src="{{ STATIC_URL }}Lecture4/robot_hand.js"></script>
+    <script src="{{ STATIC_URL }}Lecture4/make_a_flower.js"></script>
+    <script src="{{ STATIC_URL }}Lecture4/improved_petals.js"></script>
+{% endblock %}

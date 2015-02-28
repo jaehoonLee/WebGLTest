@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block css %}
+    .mainDiv{
+        margin-top : 20px;
+        margin-left : 20px;
+    }
+{% endblock %}
+{% block javascript %}
+    <script src="{{ STATIC_URL }}Third/Coordinates.js"></script>
+    <script src="{{ STATIC_URL }}Third/OrbitAndPanControls.js"></script>
+    <!--<script src="{{ STATIC_URL }}practice2.js"></script>-->
+    <!-- <script src="{{ STATIC_URL }}practice3.js"></script> -->
+    <script type="text/javascript">
+        var THREE =  {REVISION : '1'}
+        THREE.mouse =  {LEFT:0, RIGHT:1};
+
+        console.log(THREE);
+
+    </script>
+{% endblock %}
+{% block html %}
+
+    <div class="mainDiv">
+        <h1 class="title">Udacity 강의 정리</h1>
+
+        <a href="/lecture/3/"><h3>Lecture3</h3></a>
+        <a href="/lecture/4/"><h3>Lecture4</h3></a>
+
+        <h1 class="title">데모 구현</h1>
+        <a href="/demo/1/"><h3>Demo1</h3></a>
+        <a href="/demo/2/"><h3>Demo2(three.js editor)</h3></a>
+        <a href="/demo/3/"><h3>Demo3(read obj loader)</h3></a>
+        <a href="/demo/4/"><h3>Demo4(사람 데모)</h3></a>
+
+        <h1 class="title">WebGL 3D 프로그래밍</h1>
+    </div>
+
+
+{% endblock %}

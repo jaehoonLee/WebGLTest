@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>My first Three.js app</title>
+    <style>
+        body { margin: 0; }
+        canvas { width: 100%; height: 100% }
+        {% block css %}
+
+        {% endblock %}
+    </style>
+    <script src="{{ STATIC_URL }}three.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+
+    {% block javascript %}
+
+    {% endblock %}
+</head>
+<body>
+
+
+
+{% block html %}
+
+{% endblock %}
+
+{% block javascript2 %}
+
+{% endblock %}
+
+</body>
+</html>
